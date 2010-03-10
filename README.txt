@@ -6,19 +6,17 @@ Solaris + Linux
 Dann
 
 Linux:
-./configure --prefix=/tmp/curl --enable-http --enable-ftp --enable-ipv6 --enable-crypto-auth --with-ssl=/usr/local/ssl/ --disable-static
-(unter /usr/local/ssl liegt ein selbstgerolltes openssl-0.9.7i)
+./configure --prefix=/tmp/curl --disable-ldap --without-libidn --enable-http --enable-ftp --enable-ipv6 --enable-crypto-auth --with-ssl=<External>/openssl/<OS>/<version> --disable-shared
 
-Solaris:
-./configure --prefix=/tmp/curl --enable-http --enable-ftp --enable-ipv6 --enable-crypto-auth --with-ssl --disable-static
+(ggf. ist LDFLAGS=-ldl nötig, wenn configure die packageconfig von openssl
+nicht richtig ausliest)
 
 und
 
 make
 make install
 
-Anschlie�end bin, lib/libcurl.so.3 und include/curl/ nach External/...
-verschoben.  lib/lubcurl.so.3 dann in lib/libcurl.so umbenannt.
+Anschließend bin, lib und include nach External/curl/… verschoben.
 
 Windows
 -------
