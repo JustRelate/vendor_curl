@@ -24,17 +24,17 @@
 # This should most probably benefit from getting a "Requires:" field added
 # dynamically by configure.
 #
-prefix=/home/tilo/work/fiona/merge/External/curl/linux/7.19.6
+prefix=/home/tilo/work/fiona/merge/External/curl/windows/7.19.6
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include
 supported_protocols=" HTTP HTTPS FTP FTPS FILE TELNET DICT TFTP"
-supported_features=" SSL IPv6 libz IDN NTLM"
+supported_features=" SSL NTLM"
 
 Name: libcurl
 URL: http://curl.haxx.se/
 Description: Library to transfer files with ftp, http, etc.
 Version: 7.19.6
-Libs: -L${libdir} -lcurl -L/usr/local/gcc-3.4.5/lib -lgcc -rdynamic -ldl -L/home/tilo/work/fiona/merge/External/openssl/linux/1.0.0d/lib 
-Libs.private: -lidn -lssl -lcrypto -lrt -lz 
+Libs: -L${libdir} -lcurl -L/usr/local/i386-mingw32-cross-gcc-3.4.5/lib -Wl,--enable-auto-import -L/home/tilo/work/fiona/merge/External/openssl/windows/1.0.0d/lib 
+Libs.private: -lssl -lcrypto -lgdi32 -lws2_32 -lws2_32 
 Cflags: -I${includedir}
